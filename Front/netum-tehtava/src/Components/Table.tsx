@@ -6,7 +6,7 @@ export default function Table(props: userProps) {
 
   const data = React.useMemo(() => {
     let sortedArr = [...props.curUsers];
-    if (sortBy.whatToSort !== "") {
+    if (sortBy.whatToSort !== "" && sortBy.whatToSort !== "age") {
       sortedArr.sort((a: any, b: any) => {
         if (a[sortBy.whatToSort] < b[sortBy.whatToSort]) {
           return sortBy.dir === "asc" ? -1 : 1;
@@ -16,6 +16,14 @@ export default function Table(props: userProps) {
         }
         return 0;
       });
+    } else if (sortBy.whatToSort === "age") {
+      return sortBy.dir === "asc"
+        ? sortedArr.sort(
+            (a: any, b: any) => a[sortBy.whatToSort] - b[sortBy.whatToSort]
+          )
+        : sortedArr.sort(
+            (a: any, b: any) => b[sortBy.whatToSort] - a[sortBy.whatToSort]
+          );
     }
     return sortedArr;
   }, [props.curUsers, sortBy]);
