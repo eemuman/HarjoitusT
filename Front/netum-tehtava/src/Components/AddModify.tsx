@@ -12,6 +12,7 @@ export default function AddModify() {
     setShow(true);
   };
   const handleClose = () => {
+    setNewUser({ fName: "", lName: "", age: 0 });
     setShow(false);
   };
 
@@ -21,7 +22,6 @@ export default function AddModify() {
 
   const handleSubmit = () => {
     console.log(newUser);
-    setNewUser({ fName: "", lName: "", age: 0 });
     handleClose();
   };
 
@@ -63,7 +63,8 @@ export default function AddModify() {
           onChange={handleChange}
         />
       </label>
-      <input type="submit" value="Tallenna" />
+      <input type="submit" value="TALLENNA" />
+      <input type="button" value="PERU" onClick={handleClose} />
     </form>
   ) : (
     <button onClick={handleShow}>TESTBUTTON</button>

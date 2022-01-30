@@ -31,13 +31,37 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   border-radius: 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 input[type="number"] {
   width: 50%;
 }
 input[type="submit"] {
   border: 0;
-  background-color: rgb(43, 201, 43);
+  font-size: large;
+  color: white;
+  font-weight: bold;
+  background-color: #4caf50;
+}
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+}
+input[type="submit"]:active,
+input[type="button"]:active {
+  -webkit-transition-duration: 0s; /* Safari */
+  transition-duration: 0s;
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
+input[type="button"] {
+  border: 0;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(6, 146, 211);
 }
 form label input {
   display: block;
