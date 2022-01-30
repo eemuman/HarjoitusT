@@ -1,17 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { userProps } from "./UserInterface";
 
 export default function Table(props: userProps) {
-  const data = props.curUsers;
+  const [sortBy, setSortBy] = useState({ whatToSort: "", dir: "asc" });
+
+  const data = React.useMemo(() => {
+    let sortedArr = [...props.curUsers];
+    if (sortBy.whatToSort !== "") {
+      sortedArr.sort((a: any, b: any) => {
+        if (a[sortBy.whatToSort] < b[sortBy.whatToSort]) {
+          return sortBy.dir === "asc" ? -1 : 1;
+        }
+        if (a[sortBy.whatToSort] > b[sortBy.whatToSort]) {
+          return sortBy.dir === "asc" ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortedArr;
+  }, [props.curUsers, sortBy]);
+
+  const sortOrder = (whatToSort: string) => {
+    let dir = "asc";
+    if (sortBy.whatToSort === whatToSort && sortBy.dir === dir) {
+      dir = "desc";
+    }
+    setSortBy({ whatToSort, dir });
+  };
 
   return (
     <div className="TableBox">
       <table>
         <thead>
           <tr>
-            <th>Etunimi</th>
-            <th>Sukunimi</th>
-            <th>Ikä</th>
+            <th>
+              <button
+                className="tableButtons"
+                onClick={() => sortOrder("fName")}
+              >
+                Etunimi
+              </button>
+            </th>
+            <th>
+              <button
+                className="tableButtons"
+                onClick={() => sortOrder("lName")}
+              >
+                Sukunimi
+              </button>
+            </th>
+            <th>
+              <button className="tableButtons" onClick={() => sortOrder("age")}>
+                Ikä
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
