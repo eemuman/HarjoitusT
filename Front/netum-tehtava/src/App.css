@@ -57,7 +57,7 @@ label {
 form {
   margin: 10% auto;
   background-color: #eeeeee;
-  width: 45%;
+  width: 50%;
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
@@ -66,7 +66,7 @@ form {
 }
 
 input {
-  width: 65%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px auto;
   border-radius: 10px;
@@ -113,7 +113,7 @@ form label input {
   width: 100%;
 }
 table {
-  margin-top: 50px;
+  margin-top: 15px;
   width: 100%;
   border-collapse: collapse;
 }
@@ -123,4 +123,12 @@ td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+}
+
+.tableButtons {
+  all: unset;
+  cursor: pointer;
+}
+.tableButtons:hover {
+  background-color: lightgray;
 }
