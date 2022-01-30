@@ -6,7 +6,16 @@ function App() {
   return (
     <div className="App">
       <div className="Box">
-        <AddModify />
+        <div>
+          <h1>HARJOITUSTEHTÄVÄ</h1>
+          <hr />
+        </div>
+        <div>
+          <AddModify />
+        </div>
+        <div>
+          <p>TEST</p>
+        </div>
       </div>
     </div>
   );

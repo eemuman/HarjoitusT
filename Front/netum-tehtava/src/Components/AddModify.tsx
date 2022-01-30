@@ -26,47 +26,54 @@ export default function AddModify() {
   };
 
   return show ? (
-    <form onSubmit={handleSubmit}>
-      <h2>LISÄÄ / MUOKKAA TIETOJA</h2>
-      <label>
-        Etunimi
-        <input
-          type="text"
-          id="fName"
-          name="fName"
-          placeholder="Etunimi"
-          value={newUser.fName}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Sukunimi
-        <input
-          type="text"
-          id="lName"
-          name="lName"
-          placeholder="Sukunimi"
-          value={newUser.lName}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Ikä
-        <input
-          type="number"
-          min="0"
-          max="100"
-          id="age"
-          name="age"
-          placeholder="Ikä"
-          value={newUser.age}
-          onChange={handleChange}
-        />
-      </label>
-      <input type="submit" value="TALLENNA" />
-      <input type="button" value="PERU" onClick={handleClose} />
-    </form>
+    <div className="form">
+      <form onSubmit={handleSubmit}>
+        <h2>LISÄÄ / MUOKKAA TIETOJA</h2>
+        <hr />
+        <label>
+          Etunimi
+          <input
+            type="text"
+            id="fName"
+            name="fName"
+            placeholder="Etunimi"
+            value={newUser.fName}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Sukunimi
+          <input
+            type="text"
+            id="lName"
+            name="lName"
+            placeholder="Sukunimi"
+            value={newUser.lName}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Ikä
+          <input
+            type="number"
+            min="0"
+            max="100"
+            id="age"
+            name="age"
+            placeholder="Ikä"
+            value={newUser.age}
+            onChange={handleChange}
+          />
+        </label>
+        <input type="submit" value="TALLENNA" />
+        <div>
+          <input type="button" value="PERU" onClick={handleClose} />
+        </div>
+      </form>
+    </div>
   ) : (
-    <button onClick={handleShow}>TESTBUTTON</button>
+    <button className="AddButton" onClick={handleShow}>
+      LISÄÄ UUSI
+    </button>
   );
 }
