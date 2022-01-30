@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import AddModify from "./Components/AddModify";
+import Table from "./Components/Table";
+import { user } from "./Components/UserInterface";
 
 function App() {
+  const [curUsers, setCurUsers] = useState<Array<user>>([]);
+
+  const addNewUser = (user: user) => {
+    setCurUsers([...curUsers, user]);
+  };
+
   return (
     <div className="App">
       <div className="Box">
@@ -11,10 +19,10 @@ function App() {
           <hr />
         </div>
         <div>
-          <AddModify />
+          <AddModify addNewUser={addNewUser} />
         </div>
         <div>
-          <p>TEST</p>
+          <Table curUsers={curUsers} />
         </div>
       </div>
     </div>

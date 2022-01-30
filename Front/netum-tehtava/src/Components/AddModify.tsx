@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { user } from "./UserInterface";
 
-export default function AddModify() {
+export default function AddModify(props: any) {
   const [show, setShow] = useState<Boolean>(false);
-  const [newUser, setNewUser] = useState<any>({
-    etunimi: "",
-    sukunimi: "",
-    ikä: 0,
+  const [newUser, setNewUser] = useState<user>({
+    fName: "",
+    lName: "",
+    age: 0,
   });
 
   const handleShow = () => {
@@ -22,6 +23,7 @@ export default function AddModify() {
 
   const handleSubmit = () => {
     console.log(newUser);
+    props.addNewUser(newUser);
     handleClose();
   };
 
@@ -35,7 +37,7 @@ export default function AddModify() {
           <input
             type="text"
             id="fName"
-            name="etunimi"
+            name="fName"
             placeholder="Etunimi"
             value={newUser.fName}
             onChange={handleChange}
@@ -47,7 +49,7 @@ export default function AddModify() {
           <input
             type="text"
             id="lName"
-            name="sukunimi"
+            name="lName"
             placeholder="Sukunimi"
             value={newUser.lName}
             onChange={handleChange}
@@ -61,7 +63,7 @@ export default function AddModify() {
             min="0"
             max="100"
             id="age"
-            name="ikä"
+            name="age"
             placeholder="Ikä"
             value={newUser.age}
             onChange={handleChange}
