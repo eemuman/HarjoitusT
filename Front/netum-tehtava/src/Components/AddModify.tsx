@@ -3,9 +3,9 @@ import React, { useState } from "react";
 export default function AddModify() {
   const [show, setShow] = useState<Boolean>(false);
   const [newUser, setNewUser] = useState<any>({
-    fName: "",
-    lName: "",
-    age: 0,
+    etunimi: "",
+    sukunimi: "",
+    ikä: 0,
   });
 
   const handleShow = () => {
@@ -35,7 +35,7 @@ export default function AddModify() {
           <input
             type="text"
             id="fName"
-            name="fName"
+            name="etunimi"
             placeholder="Etunimi"
             value={newUser.fName}
             onChange={handleChange}
@@ -47,7 +47,7 @@ export default function AddModify() {
           <input
             type="text"
             id="lName"
-            name="lName"
+            name="sukunimi"
             placeholder="Sukunimi"
             value={newUser.lName}
             onChange={handleChange}
@@ -61,7 +61,7 @@ export default function AddModify() {
             min="0"
             max="100"
             id="age"
-            name="age"
+            name="ikä"
             placeholder="Ikä"
             value={newUser.age}
             onChange={handleChange}
