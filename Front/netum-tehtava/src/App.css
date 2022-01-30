@@ -128,6 +128,7 @@ td {
 .tableButtons {
   all: unset;
   cursor: pointer;
+  width: 100%;
 }
 .tableButtons:hover {
   background-color: lightgray;

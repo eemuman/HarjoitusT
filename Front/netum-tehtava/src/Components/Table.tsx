@@ -16,7 +16,8 @@ export default function Table(props: userProps) {
         }
         return 0;
       });
-    } else if (sortBy.whatToSort === "age") {
+    }
+    if (sortBy.whatToSort === "age") {
       return sortBy.dir === "asc"
         ? sortedArr.sort(
             (a: any, b: any) => a[sortBy.whatToSort] - b[sortBy.whatToSort]
