@@ -39,6 +39,7 @@ export default function AddModify() {
             placeholder="Etunimi"
             value={newUser.fName}
             onChange={handleChange}
+            required
           />
         </label>
         <label>
@@ -50,6 +51,7 @@ export default function AddModify() {
             placeholder="Sukunimi"
             value={newUser.lName}
             onChange={handleChange}
+            required
           />
         </label>
         <label>
