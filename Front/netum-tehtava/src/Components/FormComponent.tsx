@@ -1,30 +1,31 @@
 import React, { useState } from "react";
-import { user } from "./UserInterface";
 
-export default function AddModify(props: any) {
+interface propData {
+  btnLabel: string;
+  fName: string;
+  lName: string;
+  age: number;
+  handleSubmit: Function;
+}
+
+export default function FormComponent(props: propData) {
   const [show, setShow] = useState<Boolean>(false);
-  const [newUser, setNewUser] = useState<user>({
-    fName: "",
-    lName: "",
-    age: 0,
-  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    props.handleSubmit({
+      fName: e.currentTarget.fName.value,
+      lName: e.currentTarget.lName.value,
+      age: e.currentTarget.age.value,
+    });
+    e.preventDefault();
+    handleClose();
+  };
 
   const handleShow = () => {
     setShow(true);
   };
   const handleClose = () => {
-    setNewUser({ fName: "", lName: "", age: 0 });
     setShow(false);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewUser({ ...newUser, [event.target.name]: event.target.value });
-  };
-
-  const handleSubmit = () => {
-    console.log(newUser);
-    props.addNewUser(newUser);
-    handleClose();
   };
 
   return show ? (
@@ -39,8 +40,7 @@ export default function AddModify(props: any) {
             id="fName"
             name="fName"
             placeholder="Etunimi"
-            value={newUser.fName}
-            onChange={handleChange}
+            defaultValue={props.fName}
             required
           />
         </label>
@@ -51,8 +51,7 @@ export default function AddModify(props: any) {
             id="lName"
             name="lName"
             placeholder="Sukunimi"
-            value={newUser.lName}
-            onChange={handleChange}
+            defaultValue={props.lName}
             required
           />
         </label>
@@ -65,8 +64,7 @@ export default function AddModify(props: any) {
             id="age"
             name="age"
             placeholder="Ikä"
-            value={newUser.age}
-            onChange={handleChange}
+            defaultValue={props.age}
           />
         </label>
         <input type="submit" value="TALLENNA" />
@@ -77,7 +75,7 @@ export default function AddModify(props: any) {
     </div>
   ) : (
     <button className="AddButton" onClick={handleShow}>
-      LISÄÄ UUSI
+      {props.btnLabel}
     </button>
   );
 }

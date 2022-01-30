@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import AddModify from "./Components/AddModify";
+import AddModify from "./Components/AddNew";
 import Table from "./Components/Table";
 import { user } from "./Components/UserInterface";
 
