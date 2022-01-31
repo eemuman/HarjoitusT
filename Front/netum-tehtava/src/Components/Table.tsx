@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { userProps } from "./UserInterface";
+import DeleteUser from "./DeleteUser";
+import EditOld from "./EditOld";
+import { userProps, user } from "./UserInterface";
 
 export default function Table(props: userProps) {
   const [sortBy, setSortBy] = useState({ whatToSort: "", dir: "asc" });
@@ -37,6 +39,10 @@ export default function Table(props: userProps) {
     setSortBy({ whatToSort, dir });
   };
 
+  const updateUser = (user: user) => {
+    console.log("Updated...");
+  };
+
   return (
     <div className="TableBox">
       <table>
@@ -63,6 +69,7 @@ export default function Table(props: userProps) {
                 Ikä
               </button>
             </th>
+            <th>Hallitse</th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +78,12 @@ export default function Table(props: userProps) {
               <td>{user.fName}</td>
               <td>{user.lName}</td>
               <td>{user.age}</td>
+              <td style={{ width: "15%" }}>
+                <div>
+                  {<EditOld editUser={user} updateUser={updateUser} />}
+                  <DeleteUser />
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>

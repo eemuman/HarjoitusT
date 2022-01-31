@@ -5,6 +5,7 @@ interface propData {
   fName: string;
   lName: string;
   age: number;
+  id: string;
   handleSubmit: Function;
 }
 
@@ -74,7 +75,7 @@ export default function FormComponent(props: propData) {
       </form>
     </div>
   ) : (
-    <button className="AddButton" onClick={handleShow}>
+    <button className="AddButton" id={props.id} onClick={handleShow}>
       {props.btnLabel}
     </button>
   );
