@@ -42,7 +42,7 @@ module.exports = {
 
   postNew: async (fName: string, lName: string, age: number) => {
     return await doQuery(
-      'INSERT INTO users ("fName", "lName", "age") VALUES (?, ?, ?)',
+      "INSERT INTO users (fName, lName, age) VALUES (?, ?, ?)",
       [fName, lName, age]
     );
   },
