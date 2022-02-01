@@ -18,18 +18,26 @@ app.listen(PORT, () => {
 
 app.use(express.json());
 
-app.get(`/users`, async (req: Request, res: Response) => {
+app.get(`/users`, async (req, res) => {
   const data = await server.getAll();
   res.send(data);
 });
 
-app.get(`/users/:id`, async (req: Request, res: Response) => {
-  console.log(req.params.id);
+app.get(`/users/:id`, async (req, res) => {
   const data = await server.getById(req.params.id);
   res.send(data);
 });
 
-app.patch(`/users`, async (req: Request, res: Response) => {
+app.post("/users", async (req, res) => {
+  const data = await server.postNew(
+    req.body.fName,
+    req.body.lName,
+    req.body.age
+  );
+  res.send(data);
+});
+
+app.patch(`/users`, async (req: Request, res) => {
   const data = await server.updateById(req.params.id, req.body);
   res.send(data);
 });

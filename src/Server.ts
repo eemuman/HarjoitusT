@@ -37,7 +37,6 @@ module.exports = {
   },
 
   getById: async (id: number) => {
-    console.log("HERE");
     return await doQuery("SELECT * FROM users WHERE id=?", [id]);
   },
 
