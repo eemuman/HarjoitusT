@@ -1,4 +1,5 @@
 import { query } from "express";
+import { Query } from "mysql2";
 
 const express = require("express");
 const router = express.Router();
@@ -25,8 +26,9 @@ console.log(config);
 const connection = mysql.createPool(config);
 
 async function doQuery(query: String, params: any[]) {
-  const result = await connection.query(query, params);
-  return result[0];
+  const [rows, fields] = await connection.query(query, params);
+  console.log(rows);
+  return rows;
 }
 
 module.exports = {
@@ -35,6 +37,7 @@ module.exports = {
   },
 
   getById: async (id: number) => {
+    console.log("HERE");
     return await doQuery("SELECT * FROM users WHERE id=?", [id]);
   },
 
