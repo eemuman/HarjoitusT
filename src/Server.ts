@@ -49,22 +49,22 @@ module.exports = {
     var propValues: any[] = [];
 
     if ("fName" in properties) {
-      updateProps.push('"fName" = ?' + (updateProps.length + 1));
+      updateProps.push('"fName" = ?');
       propValues.push(properties.fName);
     }
     if ("lName" in properties) {
-      updateProps.push('"lName"= ?' + (updateProps.length + 1));
+      updateProps.push('"lName"= ?');
       propValues.push(properties.lName);
     }
     if ("age" in properties) {
-      updateProps.push('"age= ?"' + (updateProps.length + 1));
+      updateProps.push('"age= ?"');
       propValues.push(properties.age);
     }
 
     var query = [
       "UPDATE users",
       "SET " + updateProps.join(", "),
-      "WHERE id = ?" + (updateProps.length + 1),
+      "WHERE id = ?",
     ];
     return await doQuery(query.join(" "), propValues.concat([id]));
   },
