@@ -70,6 +70,6 @@ module.exports = {
   },
 
   deleteById: async (id: number) => {
-    return await doQuery("DELETE FROM users WHERE id=$1", [id]);
+    return await doQuery("DELETE FROM users WHERE id=?", [id]);
   },
 };
