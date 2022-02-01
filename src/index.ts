@@ -5,10 +5,12 @@ import express, {
   request,
   response,
 } from "express";
+import cors from "cors";
 require("dotenv").config();
 const server = require("./Server");
 
 const app: Application = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 8000;
 
