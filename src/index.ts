@@ -23,6 +23,12 @@ app.get(`/users`, async (req: Request, res: Response) => {
   res.send(data);
 });
 
+app.get(`/users/:id`, async (req: Request, res: Response) => {
+  console.log(req.params.id);
+  const data = await server.getById(req.params.id);
+  res.send(data);
+});
+
 app.patch(`/users`, async (req: Request, res: Response) => {
   const data = await server.updateById(req.params.id, req.body);
   res.send(data);
