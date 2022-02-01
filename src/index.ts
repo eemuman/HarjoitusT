@@ -37,7 +37,13 @@ app.post("/users", async (req, res) => {
   res.send(data);
 });
 
-app.patch(`/users`, async (req: Request, res) => {
+app.patch(`/users/:id`, async (req: Request, res) => {
   const data = await server.updateById(req.params.id, req.body);
   res.send(data);
 });
+
+app.delete(`/users/:id`),
+  async (req: Request, res: Response) => {
+    const data = await server.deleteById(req.params.id);
+    res.send(data);
+  };
