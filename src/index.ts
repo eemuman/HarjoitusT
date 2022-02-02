@@ -9,7 +9,7 @@ const path = require("path");
  * Express ja corssi
  */
 const app: Application = express();
-app.use(express.static(path.join(__dirname, "Front/netum-tehtava/build")));
+app.use(express.static(path.join(__dirname, "../Front/netum-tehtava/build")));
 
 const PORT = process.env.PORT || 8000;
 
@@ -38,10 +38,6 @@ app.listen(PORT, () => {
 });
 
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "Front/netum-tehtava/build/index.html"));
-});
 
 /**
  * Kun frontista tulee kutsua hakea kaikki henkilöt, haetaan ne tämän avulla ja käytetään ylläolevaa virhetsekauksee
