@@ -98,17 +98,18 @@ form {
 }
 
 input {
-  width: 40%;
+  width: 45%;
   padding: 12px 20px;
   margin: 8px auto;
   border-radius: 10px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
 input[type="number"] {
   width: 12%;
   text-align: center;
 }
+
 input[type="submit"] {
   width: 30%;
   border: 0;
@@ -171,6 +172,7 @@ td {
   background-color: lightgray;
 }
 
+.tableButtons:focus,
 .tableButtons:hover {
   background-color: lightgray;
 }
