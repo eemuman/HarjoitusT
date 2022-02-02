@@ -16,11 +16,7 @@ export async function postNew(url: string, data: user) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fName: data.fName,
-        lName: data.lName,
-        age: data.age,
-      }),
+      body: JSON.stringify(data),
     });
     const rsp = await resp.json();
     return rsp;
@@ -36,12 +32,21 @@ export async function patchOld(url: string, data: user) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        data,
-      }),
+      body: JSON.stringify(data),
     });
     const rsp = await resp.json();
+    return rsp;
   } catch (err) {
     console.log(err);
   }
+}
+
+export async function deleteById(url: string) {
+  try {
+    const resp = await fetch(url, {
+      method: "DELETE",
+    });
+    const rps = await resp.json();
+    return rps;
+  } catch (err) {}
 }
