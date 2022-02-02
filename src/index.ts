@@ -43,17 +43,13 @@ app.get(`/users/:id`, async (req, res) => {
 });
 
 app.post("/users", async (req, res) => {
-  const data = await server.postNew(
-    req.body.fName,
-    req.body.lName,
-    req.body.age
-  );
+  const data = await server.postNew(req.body);
   checkSend(res, data);
 });
 
 app.patch(`/users/:id`, async (req: Request, res) => {
-  console.log(req.body.data);
-  const data = await server.updateById(Number(req.params.id), req.body.data);
+  console.log(req.body);
+  const data = await server.updateById(Number(req.params.id), req.body);
   checkSend(res, data);
 });
 

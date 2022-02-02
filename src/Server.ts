@@ -40,10 +40,10 @@ module.exports = {
     return await doQuery("SELECT * FROM users WHERE id=?", [id]);
   },
 
-  postNew: async (fName: string, lName: string, age: number) => {
+  postNew: async (data: user) => {
     return await doQuery(
       "INSERT INTO users (fName, lName, age) VALUES (?, ?, ?)",
-      [fName, lName, age]
+      [data.fName, data.lName, data.age]
     );
   },
   updateById: async (id: number, properties: user) => {
