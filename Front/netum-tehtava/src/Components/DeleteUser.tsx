@@ -43,7 +43,7 @@ export default function DeleteUser(props: deleteProps) {
               >
                 POISTA
               </button>
-              <button className="AddButton" onClick={handleClose}>
+              <button className="AddButton" id={"canC"} onClick={handleClose}>
                 Peru
               </button>
             </div>
