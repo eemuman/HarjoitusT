@@ -78,9 +78,9 @@ div.delButtons {
 
 /* Poistamisen modali, 10% yläreunasta ja keskitetty, 33% leveys, näyttää ihan nätiltä. Vähän reunoja ja varjoja. */
 div.delete {
-  margin: 10% auto;
+  margin: 150px auto;
   background-color: #eeeeee;
-  width: 33%;
+  width: 50%;
   max-width: 768px;
   border-style: solid;
   border-width: 2px;
@@ -108,9 +108,9 @@ label {
 }
 /*Formien modali, käytännössä sama kuin deleten modal, mutta form haluaa sen tälleen*/
 form {
-  margin: 10% auto;
+  margin: 150px auto;
   background-color: #eeeeee;
-  width: 33%;
+  width: 50%;
   max-width: 768px;
   border-style: solid;
   border-width: 2px;
