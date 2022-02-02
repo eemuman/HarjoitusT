@@ -1,4 +1,3 @@
-import React from "react";
 import { patchOld } from "./FetchUtils";
 import FormComponent from "./FormComponent";
 import { user } from "./UserInterface";
@@ -17,11 +16,13 @@ export default function EditOld(props: editProps) {
         changedUser[key] = val;
       }
     }
-    await patchOld(
-      `http://localhost:8000/users/${props.editUser.id}`,
-      changedUser
-    );
-    await props.fetchAll();
+    if (Object.keys(changedUser).length !== 0) {
+      await patchOld(
+        `http://localhost:8000/users/${props.editUser.id}`,
+        changedUser
+      );
+      await props.fetchAll();
+    }
   };
 
   return (
