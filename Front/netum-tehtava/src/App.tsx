@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import AddModify from "./Components/AddNew";
-import { getAll, postNew } from "./Components/FetchUtils";
+import { getAll, patchOld, postNew } from "./Components/FetchUtils";
 import Table from "./Components/Table";
 import { user } from "./Components/UserInterface";
 
@@ -22,6 +22,11 @@ function App() {
     await fetchAll();
   };
 
+  const patchOldUser = async (url: string, user: user) => {
+    await patchOld(url, user);
+    await fetchAll();
+  };
+
   return (
     <div className="App">
       <div className="Box">
@@ -33,7 +38,7 @@ function App() {
           <AddModify addNewUser={addNewUser} />
         </div>
         <div>
-          <Table curUsers={curUsers} />
+          <Table curUsers={curUsers} patchOldUser={patchOldUser} />
         </div>
       </div>
     </div>
