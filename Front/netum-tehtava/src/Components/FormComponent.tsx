@@ -40,6 +40,7 @@ export default function FormComponent(props: propData) {
               Etunimi
               <input
                 type="text"
+                pattern="\S(.*\S)?"
                 id="fName"
                 name="fName"
                 placeholder="Etunimi"
@@ -51,6 +52,7 @@ export default function FormComponent(props: propData) {
               Sukunimi
               <input
                 type="text"
+                pattern="\S(.*\S)?"
                 id="lName"
                 name="lName"
                 placeholder="Sukunimi"
