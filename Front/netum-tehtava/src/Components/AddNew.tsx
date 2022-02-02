@@ -1,23 +1,30 @@
+import { postNew } from "./FetchUtils";
 import FormComponent from "./FormComponent";
 import { user } from "./UserInterface";
 
+/**
+ * Typescript interface, varmistetaan että propseissa on oikeat asiat.
+ */
 interface addProps {
-  addNewUser: Function;
+  fetchAll: Function;
 }
-
+/**
+ * Tämä on uuden henkilön luomiseen tehty pikkuelementti. Täällä ei tehdä muuta kuin lähetetä POST-pyyntö backendiin kun FormComponentissa painetaan submit.
+ * Tätä tarvitaan, jotta voidaan käyttää samaa formia myös muokkaamiseen ilman turhaa iffittelysäätämistä.
+ *
+ */
 export default function AddModify(props: addProps) {
-  const handleSubmit = (user: user) => {
-    props.addNewUser(user);
+  /**
+   *
+   * Kun FormComponentissa painetaan submit, otetaan täällä sieltä saatu data vastaan ja lähetetään POST-pyyntö backendiin.
+   */
+  const handleSubmit = async (user: user) => {
+    await postNew("/users", user);
+    await props.fetchAll();
   };
 
-  return (
-    <FormComponent
-      btnLabel={"Lisää uusi"}
-      fName={""}
-      lName={""}
-      age={0}
-      id={""}
-      handleSubmit={handleSubmit}
-    />
-  );
+  /**
+   * Renderöidään FormComponent ja annetaan sille vähän labelia, sekä uuden luontifunkkari.
+   */
+  return <FormComponent btnLabel={"LISÄÄ UUSI"} handleSubmit={handleSubmit} />;
 }
