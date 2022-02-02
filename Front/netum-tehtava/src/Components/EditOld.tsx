@@ -5,7 +5,7 @@ import { user } from "./UserInterface";
 
 interface editProps {
   editUser: user;
-  updateUser: Function;
+  fetchAll: Function;
 }
 
 export default function EditOld(props: editProps) {
@@ -17,10 +17,11 @@ export default function EditOld(props: editProps) {
         changedUser[key] = val;
       }
     }
-    await props.updateUser(
+    await patchOld(
       `http://localhost:8000/users/${props.editUser.id}`,
       changedUser
     );
+    await props.fetchAll();
   };
 
   return (

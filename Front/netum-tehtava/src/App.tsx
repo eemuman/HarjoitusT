@@ -22,11 +22,6 @@ function App() {
     await fetchAll();
   };
 
-  const patchOldUser = async (url: string, user: user) => {
-    await patchOld(url, user);
-    await fetchAll();
-  };
-
   return (
     <div className="App">
       <div className="Box">
@@ -38,7 +33,7 @@ function App() {
           <AddModify addNewUser={addNewUser} />
         </div>
         <div>
-          <Table curUsers={curUsers} patchOldUser={patchOldUser} />
+          <Table curUsers={curUsers} fetchAll={fetchAll} />
         </div>
       </div>
     </div>

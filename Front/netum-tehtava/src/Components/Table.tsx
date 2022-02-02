@@ -4,7 +4,7 @@ import EditOld from "./EditOld";
 import { userProps } from "./UserInterface";
 
 interface tableProps extends userProps {
-  patchOldUser: Function;
+  fetchAll: Function;
 }
 
 export default function Table(props: tableProps) {
@@ -87,8 +87,8 @@ export default function Table(props: tableProps) {
               <td>{user.age}</td>
               <td style={{ width: "15%" }}>
                 <div>
-                  {<EditOld editUser={user} updateUser={props.patchOldUser} />}
-                  <DeleteUser />
+                  {<EditOld editUser={user} fetchAll={props.fetchAll} />}
+                  <DeleteUser fetchAll={props.fetchAll} deleteUser={user} />
                 </div>
               </td>
             </tr>
