@@ -20,7 +20,7 @@ function App() {
    * Tällä funktiolla haeataan Fetch-apia hyväksikäyttäen kaikki käyttäjät backendistä.
    */
   const fetchAll = async () => {
-    const data = await getAll("http://localhost:8000/users");
+    const data = await getAll("/users");
     setCurUsers(data);
   };
 

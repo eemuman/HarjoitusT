@@ -19,7 +19,7 @@ export default function AddModify(props: addProps) {
    * Kun FormComponentissa painetaan submit, otetaan täällä sieltä saatu data vastaan ja lähetetään POST-pyyntö backendiin.
    */
   const handleSubmit = async (user: user) => {
-    await postNew("http://localhost:8000/users", user);
+    await postNew("/users", user);
     await props.fetchAll();
   };
 

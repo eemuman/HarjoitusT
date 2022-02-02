@@ -29,10 +29,7 @@ export default function EditOld(props: editProps) {
       }
     }
     if (Object.keys(changedUser).length !== 0) {
-      await patchOld(
-        `http://localhost:8000/users/${props.editUser.id}`,
-        changedUser
-      );
+      await patchOld(`/users/${props.editUser.id}`, changedUser);
       await props.fetchAll();
     }
   };

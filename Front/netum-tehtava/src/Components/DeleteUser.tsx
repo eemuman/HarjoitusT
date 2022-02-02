@@ -47,7 +47,7 @@ export default function DeleteUser(props: deleteProps) {
    * Tällä poistetaan käyttäjä backendistä fetch-apia käyttäen, kun ollaan poistettu, niin haetaan tuorein data taas backendistä.
    */
   const deleteUser = async () => {
-    await deleteById(`http://localhost:8000/users/${props.deleteUser.id}`);
+    await deleteById(`/users/${props.deleteUser.id}`);
     await props.fetchAll();
     handleClose();
   };
