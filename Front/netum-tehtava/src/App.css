@@ -103,7 +103,7 @@ label {
   background-color: #f2f2f2;
   padding: 20px;
   min-height: 90vh;
-  min-width: 968px;
+  width: 968px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /*Formien modali, käytännössä sama kuin deleten modal, mutta form haluaa sen tälleen*/
