@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import DeleteUser from "./DeleteUser";
 import EditOld from "./EditOld";
-import { userProps, user } from "./UserInterface";
+import { userProps } from "./UserInterface";
 
-export default function Table(props: userProps) {
+interface tableProps extends userProps {
+  patchOldUser: Function;
+}
+
+export default function Table(props: tableProps) {
   const [sortBy, setSortBy] = useState({ whatToSort: "", dir: "asc" });
 
   const data = React.useMemo(() => {
+    console.log("HER" + sortBy.whatToSort);
     let sortedArr = [...props.curUsers];
     if (sortBy.whatToSort !== "" && sortBy.whatToSort !== "age") {
       sortedArr.sort((a: any, b: any) => {
@@ -45,10 +50,6 @@ export default function Table(props: userProps) {
     setSortBy({ whatToSort, dir });
   };
 
-  const updateUser = (user: user) => {
-    console.log("Updated...");
-  };
-
   return (
     <div className="TableBox">
       <table>
@@ -80,13 +81,13 @@ export default function Table(props: userProps) {
         </thead>
         <tbody>
           {data.map((user) => (
-            <tr key={user.fName}>
-              <td>{user.fName}</td>
-              <td>{user.lName}</td>
+            <tr key={user.id}>
+              <td style={{ width: "35%" }}>{user.fName}</td>
+              <td style={{ width: "35%" }}>{user.lName}</td>
               <td>{user.age}</td>
               <td style={{ width: "15%" }}>
                 <div>
-                  {<EditOld editUser={user} updateUser={updateUser} />}
+                  {<EditOld editUser={user} updateUser={props.patchOldUser} />}
                   <DeleteUser />
                 </div>
               </td>
