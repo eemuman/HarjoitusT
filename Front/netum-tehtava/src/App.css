@@ -1,3 +1,6 @@
+/* Sivun CSS-OKSENNUS*/
+
+/*Sivun pohjaväri, eli se tummansininen */
 .App {
   background-color: #282c34;
   min-height: 100vh;
@@ -6,7 +9,7 @@
   align-items: center;
   justify-content: center;
 }
-
+/*Button pohja, tämän päälle rakennetaan käytännössä kaikki buttonit. Pieniä hienouksia ja pointer hiiri.*/
 .AddButton {
   padding: 12px 20px;
   margin: 8px 0;
@@ -20,21 +23,31 @@
   font-size: 22px;
   cursor: pointer;
 }
-.AddButton:hover {
+/* Hoveratessa napin päällä lisätään vähä lisävarjostuksia*/
+.AddButton:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
   box-shadow: 3px 3px 14px 1px rgba(0, 0, 0, 0.24);
 }
-.AddButton:active {
+
+/* Nappia painettaessa pienennetään sitä hiukan ja muutetaan vähän varjotuksia.*/
+.AddButton:active,
+input[type="submit"]:active,
+input[type="button"]:active {
   -webkit-transition-duration: 0s;
   transition-duration: 0s;
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
+/* Poistamisen perumisnäppäin, vähän pienempi kun perus*/
 #canC {
   font-size: 18px;
   margin: 14px 0;
   padding: 10px 18px;
 }
+
+/* Poistamisen näppäin vähän isompi ja kaikkea.*/
 #edDel {
   margin: 0;
   border-radius: 20px;
@@ -42,6 +55,8 @@
   padding: 8px 10px;
   font-size: 12px;
 }
+
+/*Modalin tummennettu tausta, tällä estetään myös modalin ulkopuolelle klikkailu */
 div.form {
   display: block;
   text-align: center;
@@ -54,13 +69,14 @@ div.form {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
-
+/*Poistamisesa käytettävien nappuloiden pikkunen oma divi, tätä käyttäen nappulat on siisti vähän erossa toisistaan.*/
 div.delButtons {
   display: flex;
   justify-content: space-evenly;
   align-content: center;
 }
 
+/* Poistamisen modali, 10% yläreunasta ja keskitetty, 33% leveys, näyttää ihan nätiltä. Vähän reunoja ja varjoja. */
 div.delete {
   margin: 10% auto;
   background-color: #eeeeee;
@@ -71,10 +87,14 @@ div.delete {
   padding: 10px 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/*Label tekstimuokkauksia*/
 label {
   font-size: large;
   font-weight: 500;
 }
+
+/*Box divii, tämä on sivuston ns. pohja, eli se valkoinen mötikkä keskitettynä sivulla.*/
 .Box {
   display: flex;
   flex-direction: column;
@@ -85,7 +105,7 @@ label {
   min-width: 968px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+/*Formien modali, käytännössä sama kuin deleten modal, mutta form haluaa sen tälleen*/
 form {
   margin: 10% auto;
   background-color: #eeeeee;
@@ -96,7 +116,7 @@ form {
   padding: 10px 100px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+/*Pohjat eri formin inputeille. Textinputit menee suoraan tällä pohjalla.*/
 input {
   width: 45%;
   padding: 12px 20px;
@@ -105,11 +125,12 @@ input {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
+/*Iän valintaan käytetään tätä, eli vähän ohkasempi ja keskitetty teksti.*/
 input[type="number"] {
   width: 12%;
   text-align: center;
 }
-
+/*Submit nappi, sopivan leveä, kirkkaan vihreä.*/
 input[type="submit"] {
   width: 30%;
   border: 0;
@@ -119,6 +140,8 @@ input[type="submit"] {
   background-color: #4caf50;
   cursor: pointer;
 }
+
+/*Perumisnappi, mukavan pieni, pirteän sininen.*/
 input[type="button"] {
   width: 20%;
   border: 0;
@@ -128,33 +151,27 @@ input[type="button"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  box-shadow: 3px 3px 14px 1px rgba(0, 0, 0, 0.24);
-}
-input[type="submit"]:active,
-input[type="button"]:active {
-  -webkit-transition-duration: 0s; /* Safari */
-  transition-duration: 0s;
-  transform: scale(0.98);
-  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-}
-
+/*Laitetaan display blockit formiin, jotta saadaan kaikki nätisti omille riveilleen.*/
 form label input {
   display: block;
 }
+
+/*Luodaan pohja ite tablelle, valkoinen tausta, vähä varjoja reunoille ja reunustukset */
 .TableBox {
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
 }
+
+/*Itse table, pikku ylämarginit, ettei olla kiinni uuden lisäämisnapissa.*/
 table {
   margin-top: 15px;
   width: 100%;
   border-collapse: collapse;
 }
 
+/*Riveille pikku pädäykset, teksti vasemmalle ja alareunaan hieno moderni viiva.*/
 th,
 td {
   padding: 8px;
@@ -162,16 +179,15 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
+/*Tehdään headereista klikattavia, poistetaan kaikki buttonin css, jotta ne on ihan pelkkä tekstiä. Tehdään kuitenkin kursorista pointteri, jotta jengi älyää klikkaa.*/
 .tableButtons {
   all: unset;
   cursor: pointer;
   width: 100%;
 }
 
-#col:hover {
-  background-color: lightgray;
-}
-
+/*Kun hoverataan rivillä, tai headerin näppäimillä, sekä on klikattu jotain headeria, vaihdetaan niitten taustaväri vaaleanharmaaksi.*/
+#col:hover,
 .tableButtons:focus,
 .tableButtons:hover {
   background-color: lightgray;

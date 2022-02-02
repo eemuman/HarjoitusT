@@ -1,5 +1,8 @@
 import { user } from "./UserInterface";
 
+/**
+ * Tällä funktiolla haetaan backendistä kaikki sieltä löytyvät henkilöt.
+ */
 export async function getAll(url: string) {
   try {
     const resp = await fetch(url);
@@ -9,6 +12,12 @@ export async function getAll(url: string) {
   }
 }
 
+/**
+ *
+ * Tällä funktiolla luodaan uusi henkilö databaseen.
+ * Data-objekti sisältää kaikki tarvittavat tiedot uuden henkilön luomiseen.
+ *
+ */
 export async function postNew(url: string, data: user) {
   try {
     const resp = await fetch(url, {
@@ -24,7 +33,12 @@ export async function postNew(url: string, data: user) {
     console.log(err);
   }
 }
-
+/**
+ *
+ * Tällä funktiolla voidaan muokata henkilön dataa.
+ * Muokkaamiseen käytetään ID:tä, joka on urlissa, ESIM. users/1 johtaa useriin jonka id on 1.
+ * Data objekti sisältää vain ne datat, mitä on oikeasti muokattu, katso EditOld.tsx.
+ */
 export async function patchOld(url: string, data: user) {
   try {
     const resp = await fetch(url, {
@@ -41,6 +55,10 @@ export async function patchOld(url: string, data: user) {
   }
 }
 
+/**
+ * Tällä funktiolla voidaan poistaa henkilöitä databasest käyttäen urlissa olevaa ID:tä.
+ * Eli jos url on users/1, niin poistetaan user jolla on id 1.
+ */
 export async function deleteById(url: string) {
   try {
     const resp = await fetch(url, {

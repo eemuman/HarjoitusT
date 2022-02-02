@@ -1,13 +1,25 @@
 import { patchOld } from "./FetchUtils";
 import FormComponent from "./FormComponent";
 import { user } from "./UserInterface";
-
+/**
+ * Henkilön muokkaamisen propsit, muuten sama kuin uuden luomisella, mutta täällä halutaan myös muokattavan käyttäjä.
+ */
 interface editProps {
   editUser: user;
   fetchAll: Function;
 }
 
+/**
+ *
+ *  Hyvin samanlainen pikku elementti kuin uuden luomiseen tarkoitettu on. Erona on se, että tässä otetaan vastaan henkilö-objekti joka lähetetään FormComponenttiin.
+ */
 export default function EditOld(props: editProps) {
+  /**
+   *
+   * Kun FormComponentissa painetaan tallenna, tullaan tänne. Tässä verrataan for-of loopilla formilta saadun ja tablesta saadun henkilön avainarvopareja.
+   * Jos nämä eroavat, tallennetaan se uusi, muokattu versio changedUser variableen, muuten mennään eteenpäin. Näin saadaan haettua vain muutetut datat.
+   * Jos mitään ei muutettu, ei lähetetä backendiin mitään dataa, jos taas on jotain muutettu, lähetetään backendiin pelkästään tämä muutettu data.
+   */
   const submitHandler = async (user: user) => {
     var changedUser: any = {};
 
@@ -25,6 +37,9 @@ export default function EditOld(props: editProps) {
     }
   };
 
+  /**
+   * Renderöidään FormComponent.
+   */
   return (
     <FormComponent
       btnLabel={"E"}
