@@ -53,8 +53,7 @@ app.patch(`/users/:id`, async (req: Request, res) => {
   checkSend(res, data);
 });
 
-app.delete(`/users/:id`),
-  async (req: Request, res: Response) => {
-    const data = await server.deleteById(req.params.id);
-    checkSend(res, data);
-  };
+app.delete(`/users/:id`, async (req: Request, res: Response) => {
+  const data = await server.deleteById(req.params.id);
+  checkSend(res, data);
+});
