@@ -18,6 +18,7 @@
   color: white;
   background-color: rgb(6, 146, 211);
   font-size: 22px;
+  cursor: pointer;
 }
 .AddButton:hover {
   box-shadow: 3px 3px 14px 1px rgba(0, 0, 0, 0.24);
@@ -115,6 +116,7 @@ input[type="submit"] {
   color: white;
   font-weight: bold;
   background-color: #4caf50;
+  cursor: pointer;
 }
 input[type="button"] {
   width: 20%;
@@ -122,6 +124,7 @@ input[type="button"] {
   font-weight: bold;
   color: white;
   background-color: rgb(6, 146, 211);
+  cursor: pointer;
 }
 
 input[type="submit"]:hover,
@@ -163,6 +166,11 @@ td {
   cursor: pointer;
   width: 100%;
 }
+
+#col:hover {
+  background-color: lightgray;
+}
+
 .tableButtons:hover {
   background-color: lightgray;
 }
