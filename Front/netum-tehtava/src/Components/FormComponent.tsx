@@ -29,54 +29,57 @@ export default function FormComponent(props: propData) {
     setShow(false);
   };
 
-  return show ? (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <h2>LISÄÄ / MUOKKAA TIETOJA</h2>
-        <hr />
-        <label>
-          Etunimi
-          <input
-            type="text"
-            id="fName"
-            name="fName"
-            placeholder="Etunimi"
-            defaultValue={props.fName}
-            required
-          />
-        </label>
-        <label>
-          Sukunimi
-          <input
-            type="text"
-            id="lName"
-            name="lName"
-            placeholder="Sukunimi"
-            defaultValue={props.lName}
-            required
-          />
-        </label>
-        <label>
-          Ikä
-          <input
-            type="number"
-            min="0"
-            max="100"
-            id="age"
-            name="age"
-            placeholder="Ikä"
-            defaultValue={props.age}
-          />
-        </label>
-        <input type="submit" value="TALLENNA" />
-        <div>
-          <input type="button" value="PERU" onClick={handleClose} />
+  return (
+    <>
+      {show && (
+        <div className="form">
+          <form onSubmit={handleSubmit}>
+            <h2>LISÄÄ / MUOKKAA TIETOJA</h2>
+            <hr />
+            <label>
+              Etunimi
+              <input
+                type="text"
+                id="fName"
+                name="fName"
+                placeholder="Etunimi"
+                defaultValue={props.fName}
+                required
+              />
+            </label>
+            <label>
+              Sukunimi
+              <input
+                type="text"
+                id="lName"
+                name="lName"
+                placeholder="Sukunimi"
+                defaultValue={props.lName}
+                required
+              />
+            </label>
+            <label>
+              Ikä
+              <input
+                type="number"
+                min="0"
+                max="100"
+                id="age"
+                name="age"
+                placeholder="Ikä"
+                defaultValue={props.age}
+              />
+            </label>
+            <input type="submit" value="TALLENNA" />
+            <div>
+              <input type="button" value="PERU" onClick={handleClose} />
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-  ) : (
-    <button className="AddButton" id={props.id} onClick={handleShow}>
-      {props.btnLabel}
-    </button>
+      )}
+      <button className="AddButton" id={props.id} onClick={handleShow}>
+        {props.btnLabel}
+      </button>
+    </>
   );
 }
