@@ -12,13 +12,13 @@ interface propData {
 export default function FormComponent(props: propData) {
   const [show, setShow] = useState<Boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    props.handleSubmit({
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await props.handleSubmit({
       fName: e.currentTarget.fName.value,
       lName: e.currentTarget.lName.value,
-      age: e.currentTarget.age.value,
+      age: Number(e.currentTarget.age.value),
     });
-    e.preventDefault();
     handleClose();
   };
 
