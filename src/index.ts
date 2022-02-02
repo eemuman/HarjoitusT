@@ -39,6 +39,10 @@ app.listen(PORT, () => {
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "Front/netum-tehtava/build/index.html"));
+});
+
 /**
  * Kun frontista tulee kutsua hakea kaikki henkilöt, haetaan ne tämän avulla ja käytetään ylläolevaa virhetsekauksee
  */
