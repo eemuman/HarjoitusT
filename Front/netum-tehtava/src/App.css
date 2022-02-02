@@ -111,11 +111,11 @@ form {
   margin: 150px auto;
   background-color: #eeeeee;
   width: 50%;
-  max-width: 768px;
+  max-width: 660px;
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
-  padding: 10px 100px;
+  padding: 10px 35px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /*Pohjat eri formin inputeille. Textinputit menee suoraan tällä pohjalla.*/
