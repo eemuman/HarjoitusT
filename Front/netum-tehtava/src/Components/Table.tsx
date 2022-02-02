@@ -89,7 +89,7 @@ export default function Table(props: tableProps) {
               <td>{user.age}</td>
               <td style={{ width: "15%" }}>
                 <div>
-                  {<EditOld editUser={user} fetchAll={props.fetchAll} />}
+                  <EditOld editUser={user} fetchAll={props.fetchAll} />
                   <DeleteUser fetchAll={props.fetchAll} deleteUser={user} />
                 </div>
               </td>
