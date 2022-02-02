@@ -23,7 +23,25 @@ export async function postNew(url: string, data: user) {
       }),
     });
     const rsp = await resp.json();
-    console.log(rsp);
     return rsp;
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function patchOld(url: string, data: user) {
+  try {
+    const resp = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data,
+      }),
+    });
+    const rsp = await resp.json();
+  } catch (err) {
+    console.log(err);
+  }
 }
