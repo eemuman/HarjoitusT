@@ -52,7 +52,8 @@ app.post("/users", async (req, res) => {
 });
 
 app.patch(`/users/:id`, async (req: Request, res) => {
-  const data = await server.updateById(req.params.id, req.body);
+  console.log(req.body.data);
+  const data = await server.updateById(Number(req.params.id), req.body.data);
   checkSend(res, data);
 });
 

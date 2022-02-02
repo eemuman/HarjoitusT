@@ -51,15 +51,15 @@ module.exports = {
     var propValues: any[] = [];
 
     if ("fName" in properties) {
-      updateProps.push('"fName" = ?');
+      updateProps.push("fName = ?");
       propValues.push(properties.fName);
     }
     if ("lName" in properties) {
-      updateProps.push('"lName"= ?');
+      updateProps.push("lName = ?");
       propValues.push(properties.lName);
     }
     if ("age" in properties) {
-      updateProps.push('"age= ?"');
+      updateProps.push("age = ?");
       propValues.push(properties.age);
     }
 
