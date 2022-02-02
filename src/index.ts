@@ -1,10 +1,4 @@
-import express, {
-  Request,
-  Response,
-  Application,
-  request,
-  response,
-} from "express";
+import express, { Request, Response, Application } from "express";
 import cors from "cors";
 require("dotenv").config();
 const server = require("./Server");

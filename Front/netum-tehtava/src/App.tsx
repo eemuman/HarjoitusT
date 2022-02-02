@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import AddModify from "./Components/AddNew";
-import { getAll, patchOld, postNew } from "./Components/FetchUtils";
+import { getAll, postNew } from "./Components/FetchUtils";
 import Table from "./Components/Table";
 import { user } from "./Components/UserInterface";
 

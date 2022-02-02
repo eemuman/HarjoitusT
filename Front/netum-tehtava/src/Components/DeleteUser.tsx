@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { deleteById } from "./FetchUtils";
 import { user } from "./UserInterface";
 

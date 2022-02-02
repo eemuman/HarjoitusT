@@ -1,6 +1,3 @@
-import { query } from "express";
-import { Query } from "mysql2";
-
 const express = require("express");
 const router = express.Router();
 router.use(express.json());
