@@ -94,7 +94,7 @@ export default function Table(props: tableProps) {
         </thead>
         <tbody>
           {data.map((user) => (
-            <tr key={user.id}>
+            <tr id={"col"} key={user.id}>
               <td style={{ width: "35%" }}>{user.fName}</td>
               <td style={{ width: "35%" }}>{user.lName}</td>
               <td>{user.age}</td>
