@@ -1,2 +1,8 @@
 # Harjoitus
-Harjoitustehtävä, React + TS &amp; NodeJS + TS
+Harjoitustehtävä,
+
+### Frontend
+React + TS + CSS + FETCH
+
+### Backend
+NodeJS + TS + express + dotenv + mysql2
