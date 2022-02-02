@@ -10,10 +10,16 @@ export default function Table(props: userProps) {
     let sortedArr = [...props.curUsers];
     if (sortBy.whatToSort !== "" && sortBy.whatToSort !== "age") {
       sortedArr.sort((a: any, b: any) => {
-        if (a[sortBy.whatToSort] < b[sortBy.whatToSort]) {
+        if (
+          a[sortBy.whatToSort].toLowerCase() <
+          b[sortBy.whatToSort].toLowerCase()
+        ) {
           return sortBy.dir === "asc" ? -1 : 1;
         }
-        if (a[sortBy.whatToSort] > b[sortBy.whatToSort]) {
+        if (
+          a[sortBy.whatToSort].toLowerCase() >
+          b[sortBy.whatToSort].toLowerCase()
+        ) {
           return sortBy.dir === "asc" ? 1 : -1;
         }
         return 0;
