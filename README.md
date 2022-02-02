@@ -1,7 +1,7 @@
 # Harjoitus
 Harjoitustehtävä
 
-##HUOM sivu ei ole mobiiliystävällinen
+## HUOM sivu ei ole mobiiliystävällinen
 
 
 ### Frontend
