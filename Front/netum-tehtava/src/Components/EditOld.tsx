@@ -1,4 +1,5 @@
 import React from "react";
+import { patchOld } from "./FetchUtils";
 import FormComponent from "./FormComponent";
 import { user } from "./UserInterface";
 
@@ -8,8 +9,18 @@ interface editProps {
 }
 
 export default function EditOld(props: editProps) {
-  const submitHandler = (user: user) => {
-    props.updateUser(user);
+  const submitHandler = async (user: user) => {
+    var changedUser: any = {};
+
+    for (const [key, val] of Object.entries(user)) {
+      if (props.editUser[key as keyof user] !== val) {
+        changedUser[key] = val;
+      }
+    }
+    await props.updateUser(
+      `http://localhost:8000/users/${props.editUser.id}`,
+      changedUser
+    );
   };
 
   return (
