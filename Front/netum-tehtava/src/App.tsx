@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <div className="Box">
         <div>
-          <h1>HARJOITUSTEHTÄVÄ</h1>
+          <h1 style={{ fontSize: "42px" }}>HARJOITUSTEHTÄVÄ</h1>
           <hr />
         </div>
         <div>
