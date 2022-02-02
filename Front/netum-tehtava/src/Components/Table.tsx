@@ -57,6 +57,17 @@ export default function Table(props: tableProps) {
       <table>
         <thead>
           <tr>
+            <th
+              colSpan={4}
+              style={{
+                textAlign: "center",
+                fontSize: "28px",
+              }}
+            >
+              HENKILÖT
+            </th>
+          </tr>
+          <tr>
             <th>
               <button
                 className="tableButtons"
