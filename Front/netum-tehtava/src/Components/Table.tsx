@@ -60,6 +60,7 @@ export default function Table(props: tableProps) {
             <th
               colSpan={4}
               style={{
+                borderBottom: 0,
                 textAlign: "center",
                 fontSize: "28px",
               }}
