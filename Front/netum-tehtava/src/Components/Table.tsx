@@ -11,35 +11,37 @@ export default function Table(props: tableProps) {
   const [sortBy, setSortBy] = useState({ whatToSort: "", dir: "asc" });
 
   const data = React.useMemo(() => {
-    console.log("HER" + sortBy.whatToSort);
-    let sortedArr = [...props.curUsers];
-    if (sortBy.whatToSort !== "" && sortBy.whatToSort !== "age") {
-      sortedArr.sort((a: any, b: any) => {
-        if (
-          a[sortBy.whatToSort].toLowerCase() <
-          b[sortBy.whatToSort].toLowerCase()
-        ) {
-          return sortBy.dir === "asc" ? -1 : 1;
-        }
-        if (
-          a[sortBy.whatToSort].toLowerCase() >
-          b[sortBy.whatToSort].toLowerCase()
-        ) {
-          return sortBy.dir === "asc" ? 1 : -1;
-        }
-        return 0;
-      });
+    if (props.curUsers !== undefined) {
+      let sortedArr = [...props.curUsers];
+      if (sortBy.whatToSort !== "" && sortBy.whatToSort !== "age") {
+        sortedArr.sort((a: any, b: any) => {
+          if (
+            a[sortBy.whatToSort].toLowerCase() <
+            b[sortBy.whatToSort].toLowerCase()
+          ) {
+            return sortBy.dir === "asc" ? -1 : 1;
+          }
+          if (
+            a[sortBy.whatToSort].toLowerCase() >
+            b[sortBy.whatToSort].toLowerCase()
+          ) {
+            return sortBy.dir === "asc" ? 1 : -1;
+          }
+          return 0;
+        });
+      }
+      if (sortBy.whatToSort === "age") {
+        return sortBy.dir === "asc"
+          ? sortedArr.sort(
+              (a: any, b: any) => a[sortBy.whatToSort] - b[sortBy.whatToSort]
+            )
+          : sortedArr.sort(
+              (a: any, b: any) => b[sortBy.whatToSort] - a[sortBy.whatToSort]
+            );
+      }
+      return sortedArr;
     }
-    if (sortBy.whatToSort === "age") {
-      return sortBy.dir === "asc"
-        ? sortedArr.sort(
-            (a: any, b: any) => a[sortBy.whatToSort] - b[sortBy.whatToSort]
-          )
-        : sortedArr.sort(
-            (a: any, b: any) => b[sortBy.whatToSort] - a[sortBy.whatToSort]
-          );
-    }
-    return sortedArr;
+    return [];
   }, [props.curUsers, sortBy]);
 
   const sortOrder = (whatToSort: string) => {
@@ -50,7 +52,7 @@ export default function Table(props: tableProps) {
     setSortBy({ whatToSort, dir });
   };
 
-  return (
+  return data.length !== 0 ? (
     <div className="TableBox">
       <table>
         <thead>
@@ -95,6 +97,10 @@ export default function Table(props: tableProps) {
           ))}
         </tbody>
       </table>
+    </div>
+  ) : (
+    <div style={{ textAlign: "center" }}>
+      <h1 style={{ fontSize: "64px" }}>DATAA EI LÖYTYNYT!</h1>
     </div>
   );
 }
