@@ -1,15 +1,15 @@
 /**Pikkunen api backendille, käytetään corssia, expressiä, dotenviä ja tietty nodejs */
 
 import express, { Request, Response, Application } from "express";
-import cors from "cors";
 require("dotenv").config();
 const server = require("./Server");
+const path = require("path");
 
 /**
  * Express ja corssi
  */
 const app: Application = express();
-app.use(cors());
+app.use(express.static(path.join(__dirname, "Front/netum-tehtava/build")));
 
 const PORT = process.env.PORT || 8000;
 
